@@ -16,7 +16,7 @@
 require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR .'bootstrap.php');
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
-header('X-UA-Compatible: IE=edge,chrome=1');
+header('X-UA-Compatible: IE=edge,come=1');
 
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
@@ -81,7 +81,6 @@ jQuery(function ()
 });
 
 </script>
-
 </head>
 
 <body>
@@ -93,7 +92,7 @@ jQuery(function ()
     <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
         /*echo ($showSidebar) ? 'showSidebar' : '';*/ ?> <?php /* echo ($hasSidebar) ? 'hasSidebar' : '';*/ ?>">
 
-        <?php include('tpl_header.php') ?>
+        <!--?php include('tpl_header.php') ?-->
 
         <div class="wrapper group">
 
@@ -101,10 +100,12 @@ jQuery(function ()
 
             <!-- ********** CONTENT ********** -->
             <div id="dokuwiki__content"><div class="pad group">
+                
+                <!--div class="pageId"><span><?php echo hsc($ID) ?></span></div-->
 
-                <!--<div class="pageId"><span><?php echo hsc($ID) ?></span></div>-->
-
-                <div class="page group">
+              <div class="page group">
+          <?php include('tpl_header.php') ?>
+            <hr class="topSep"/> 
                     <?php tpl_flush() ?>
                     <?php tpl_includeFile('pageheader.html') ?>
                     <!-- wikipage start -->
@@ -190,7 +191,7 @@ jQuery(function ()
             
             
             
-        <div id="dokuwiki__sitetools">
+        <!--div id="dokuwiki__sitetools">
             <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
             <?php tpl_searchform(); ?>
             <!--<div class="mobileTools">
@@ -203,7 +204,7 @@ jQuery(function ()
                     tpl_action('index', 1, 'li');
                 ?>
             </ul>
-        </div>
+        </div-->
             
             </div>
             

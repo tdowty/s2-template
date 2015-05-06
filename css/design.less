@@ -13,11 +13,10 @@
 
 
 #dokuwiki__header {
-    padding: 2em 0 1.5em;
-
     .headings,
     .tools {
         margin-bottom: 1.5em;
+;
         width: 49%;
     }
     .tools {
@@ -186,20 +185,21 @@
 /*____________ site tools ____________*/
 
 #dokuwiki__sitetools {
-    text-align: center;
+    text-align: left;
 
     form.search {
         display: block;
         font-size: 0.875em;
         position: relative;
+        margin-bottom: 1.5em;
 
         input.edit {
             width: 19em;
             border-radius:12px;
             outline:none;
             
-            padding: .35em 22px .35em .1em;
-            padding-left:5px;
+            padding: .5em 22px .35em .1em;
+            padding-left:25px;
         }
         
           .ajax_qsearch{
@@ -213,17 +213,17 @@
                 a{color:#2b73b7;}
             }
         }
-
         input.button {
             background: transparent url(images/search.png) no-repeat 0 0;
             border-width: 0;
             width: 19px;
             height: 14px;
             text-indent: -99999px;
-            margin-left: -20px;
+            margin-left: -18.5em;
             box-shadow: none;
             padding: 0;
-        }
+        }  
+
     }
 
     ul {
@@ -254,6 +254,29 @@
 #IE7 #dokuwiki__sitetools form.search {
     min-height: 1px;
     z-index: 21;
+}
+
+/*____________s2 wiki ______________*/
+.dokuwiki hr.topSep {
+    color: #D9D9D9;
+    height: 3;
+    margin-left: -32px;
+    margin-right: -32px;
+}
+.s2_footer {
+    background-color:#D9D9D9;
+    height:1em;
+    padding:1em;
+    margin:3em -32px 0px -32px;
+}
+.float_right {
+    float:right;
+    font-size:80%;
+}	
+.float_left {
+    float:left;
+    font-style:italic;
+    font-size:80%;
 }
 
 /*____________codo wiki ______________*/
@@ -502,11 +525,11 @@ refer:http://stackoverflow.com/questions/3293771/how-to-get-rid-of-margins-in-jq
 
 .dokuwiki div.page {
     background: @ini_background;
-    color: inherit;
-    /*border: 1px solid @ini_background_alt;
-    box-shadow: 0 0 .5em @ini_text_alt;
-    border-radius: 2px;*/
-    padding: 1.556em 2em 2em;
+    color:inherit;
+    border: 3px solid #D9D9D9;
+    /*box-shadow: 0 0 .5em @ini_text_alt;*/
+    border-radius: 0px;
+    padding: 1.556em 2em 0px; /* 2em;*/
     margin-bottom: .5em;
     overflow: hidden;
     word-wrap: break-word;

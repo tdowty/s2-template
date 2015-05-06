@@ -11,7 +11,7 @@ if (!defined('DOKU_INC')) die();
 <div id="dokuwiki__header"><div class="pad group">
 
     <?php tpl_includeFile('header.html') ?>
-<!--
+<!-- start -->
     <div class="headings group">
         <ul class="a11y skip">
             <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
@@ -32,7 +32,8 @@ if (!defined('DOKU_INC')) die();
         <?php if ($conf['tagline']): ?>
             <p class="claim"><?php echo $conf['tagline']; ?></p>
         <?php endif ?>
-    </div> -->
+</div>
+<!--end -->
 
     <div class="tools group">
         <!-- USER TOOLS -->
