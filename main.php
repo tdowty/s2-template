@@ -139,12 +139,15 @@ jQuery(function ()
                                 )
                             );
 
-                            // the page tools can be amended through a custom plugin hook
-                            $evt = new Doku_Event('TEMPLATE_PAGETOOLS_DISPLAY', $data);
-                            if($evt->advise_before()){
-                                foreach($evt->data['items'] as $k => $html) echo $html;
+                            // show tools only if logged in
+                            if (isset($_SERVER['REMOTE_USER'])) {
+                                // the page tools can be amended through a custom plugin hook
+                                $evt = new Doku_Event('TEMPLATE_PAGETOOLS_DISPLAY', $data);
+                                if($evt->advise_before()){
+                                    foreach($evt->data['items'] as $k => $html) echo $html;
+                                }
+                                $evt->advise_after();
                             }
-                            $evt->advise_after();
                             unset($data);
                             unset($evt);
                         ?>

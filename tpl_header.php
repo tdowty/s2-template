@@ -8,31 +8,33 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** HEADER ********** -->
-<div id="dokuwiki__header"><div class="pad group">
+<div id="dokuwiki__header">
+    <div class="pad group">
 
     <?php tpl_includeFile('header.html') ?>
 <!-- start -->
-    <div class="headings group">
-        <ul class="a11y skip">
-            <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
-        </ul>
+        <div class="headings group">
+            <ul class="a11y skip">
+                <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
+            </ul>
 
-        <h1><?php
-            // get logo either out of the template images folder or data/media folder
-            $logoSize = array();
-            $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
+            <h1><?php
+                // get logo either out of the template images folder or data/media folder
+                $logoSize = array();
+                $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
 
-            // display logo and wiki title in a link to the home page
-            tpl_link(
-                wl(),
-                '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
-                'accesskey="h" title="[H]"'
-            );
-        ?></h1>
-        <?php if ($conf['tagline']): ?>
-            <p class="claim"><?php echo $conf['tagline']; ?></p>
-        <?php endif ?>
-</div>
+                // display logo and wiki title in a link to the home page
+                tpl_link(
+                    wl(),
+                    '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
+                    'accesskey="h" title="[H]"'
+                );
+            ?></h1>
+            <?php if ($conf['tagline']): ?>
+                <p class="claim"><?php echo $conf['tagline']; ?></p>
+            <?php endif ?>
+        </div>
+        <span class='supportLink'><a href='http://www.s2technologies.com'>Support</a></span>
 <!--end -->
 
     <div class="tools group">
@@ -50,7 +52,11 @@ if (!defined('DOKU_INC')) die();
                         tpl_action('admin', 1, 'li');
                         tpl_action('profile', 1, 'li');
                         tpl_action('register', 1, 'li');
-                        tpl_action('login', 1, 'li');
+                        // to get login link, add seaside request to url
+                        // http://help.testspace.com/start?seaside=1
+                        if ($_REQUEST['seaside']) {
+                            tpl_action('login', 1, 'li');
+                        }
                     ?>
                 </ul>
             </div>
