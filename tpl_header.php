@@ -47,7 +47,8 @@ if (!defined('DOKU_INC')) die();
                         if (!empty($_SERVER['REMOTE_USER'])) {
                             echo '<li class="user">';
                             tpl_userinfo(); /* 'Logged in as ...' */
-                            echo '</li>';
+                            tpl_action('index', 1, 'li');
+                           echo '</li>';
                         }
                         tpl_action('admin', 1, 'li');
                         tpl_action('profile', 1, 'li');
