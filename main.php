@@ -60,7 +60,7 @@ jQuery(function ()
             jQuery(this).addClass("codo_active");
         }
     });
-
+    
     function apply_space(elem, times) {
 
         jQuery(elem).find(">li>div>a").each(function()
@@ -79,6 +79,14 @@ jQuery(function ()
     apply_space(jQuery('.codo_side_content >ul'), '&nbsp;');
 
 });
+
+/* set "Search" as the search box input placeholder */
+window.onload = function() {
+    var $searchInput = jQuery('#qsearch__in').get(0);
+    if ($searchInput) {
+        $searchInput.placeholder = "Search";
+    }
+}
 
 </script>
 </head>
@@ -196,10 +204,10 @@ jQuery(function ()
             
         <!--div id="dokuwiki__sitetools">
             <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
-            <!--?php tpl_searchform(); ? -->
-            <!--<div class="mobileTools">
+            <?php tpl_searchform(); ?>
+            <div class="mobileTools">
                 <?php tpl_actiondropdown($lang['tools']); ?>
-            </div>-->
+            </div>
             <ul id="codowiki_search_ul">
                 <?php
                     tpl_action('recent', 1, 'li');
