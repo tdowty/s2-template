@@ -34,7 +34,10 @@ if (!defined('DOKU_INC')) die();
                 <p class="claim"><?php echo $conf['tagline']; ?></p>
             <?php endif ?>
         </div>
-        <span class='supportLink'><a href='http://www.s2technologies.com'>Support</a></span>
+        <span class='support-link'>
+            <a href='#ticket' 
+               onclick="var e=arguments[0]||window.event;e.stopPropagation();showGrooveWidget()">Contact Support</a>
+        </span>
 <!--end -->
 
     <div class="tools group">
@@ -82,7 +85,7 @@ if (!defined('DOKU_INC')) die();
     </div>
 
     <!-- BREADCRUMBS -->
-    <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+    <?php if(($conf['breadcrumbs'] || $conf['youarehere']) && $ID != 'testspace-help'): ?>
         <div class="breadcrumbs">
             <?php if($conf['youarehere']): ?>
                 <div class="youarehere"><?php tpl_youarehere() ?></div>

@@ -23,6 +23,17 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
+<script>
+// Groove widget stuff
+  (function() {
+      var s=document.createElement('script');
+      s.type='text/javascript';s.async=true;
+      s.src=('https:'==document.location.protocol?'https':'http') + '://s2.groovehq.com/widgets/5c0e95e7-04a7-4f9c-82a0-3b97a4b38848/ticket.js';
+      var q = document.getElementsByTagName('script')[0];
+      q.parentNode.insertBefore(s, q);
+      }
+  )();
+</script>
 <head>
     <meta charset="utf-8" />
     <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
@@ -36,10 +47,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 <link href="<?php print DOKU_TPL; ?>css/ui.layout.css" rel="stylesheet">
 
 <?php echo tpl_js('layout.js'); ?>
-
+        
 <script type="text/javascript">
+
 jQuery(function ()
 {
+
     jQuery('#container').layout({
         maskContents: true,
         center: {
@@ -80,15 +93,56 @@ jQuery(function ()
 
 });
 
-/* set "Search" as the search box input placeholder */
-window.onload = function() {
-    var $searchInput = jQuery('#qsearch__in').get(0);
-    if ($searchInput) {
-        $searchInput.placeholder = "Search";
+/* Modifications to be done after page loads */
+
+document.addEventListener('DOMContentLoaded', 
+    function() {
+        showGrooveButton(false);
+    },
+    false);
+    
+window.addEventListener('load',
+    function() {
+        showGrooveButton(false);
+        // put "Search" in the search box
+        jQuery('#qsearch__in').attr("placeholder", "Search");
+        // change anchor text and href on groove popup footer
+        var $f = jQuery('#gw-footer a')
+        $f.text("S2 Technologies");
+        $f.attr("href", "http://www.s2technologies.com");               
+        },
+    false);
+function isElementInTarget(el, fn) {
+    while (el) {
+        if (fn(el)) return el;
+        el = el.parentNode;
     }
 }
-
+// Hide widget button when user clicks outside of the widget
+window.addEventListener('click', function(e) {
+  var isTargetInWidgetContainer = isElementInTarget(e.target, function(el){ return el === GrooveWidget.container });
+  if (!isTargetInWidgetContainer) showGrooveButton(false);
+});
+// Hide widget button when user presses ESC
+window.addEventListener('keydown', function(e) {
+  if (e.keyCode === 27) showGrooveButton(false);
+});
+function showGrooveButton(show) {
+    var $b = jQuery('#groove-button');
+    var state = "none";
+    if (show) {
+        state = "block";
+    }
+    $b.css("display", state);
+}
+function showGrooveWidget() {
+    GrooveWidget.selectPanel('#ticket');
+    GrooveWidget.open();
+    showGrooveButton(true);
+}
 </script>
+
+
 </head>
 
 <body>

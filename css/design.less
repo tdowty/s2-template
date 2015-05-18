@@ -49,7 +49,7 @@
         margin-bottom: 0;
         font-size: 0.875em;
     }
-    span.supportLink {
+    span.support-link {
         float: right;
         padding: 1em;
         text-decoration: underline;
@@ -261,9 +261,12 @@
     z-index: 21;
 }
 
-/*____________testspace.help.template ______________*/
+/*____________ testspace.help.template ______________*/
 #dokuwiki__header h1 img {
     padding-top: 12px;
+}
+#dokuwiki__header span.bchead {
+    display: none;
 }
 .dokuwiki hr.topSep {
     color: #D9D9D9;
@@ -286,6 +289,15 @@
     font-style: italic;
     font-size: 80%;
 }
+.wrap_testspace-header-link a.wikilink1 {
+    color: black !important;
+    font-weight: bold;
+}
+/*
+span.support-link a {
+    text-decoration: none !important;
+} 
+*/
 
 /*____________codo wiki ______________*/
 
@@ -535,6 +547,8 @@ refer:http://stackoverflow.com/questions/3293771/how-to-get-rid-of-margins-in-jq
     background: @ini_background;
     color:inherit;
     border: 3px solid #D9D9D9;
+    border-left-style: none;
+    border-right-style: none;
     /*box-shadow: 0 0 .5em @ini_text_alt;*/
     border-radius: 0px;
     padding: 1.556em 2em 0px; /* 2em;*/
