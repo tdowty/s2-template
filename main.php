@@ -95,13 +95,8 @@ jQuery(function ()
 
 /* Modifications to be done after page loads */
 
-document.addEventListener('DOMContentLoaded', 
-    function() {
-        showGrooveButton(false);
-    },
-    false);
     
-window.addEventListener('load',
+document.addEventListener('DOMContentLoaded',
     function() {
         showGrooveButton(false);
         // put "Search" in the search box
