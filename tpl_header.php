@@ -85,7 +85,7 @@ if (!defined('DOKU_INC')) die();
     </div>
 
     <!-- BREADCRUMBS -->
-    <?php if(($conf['breadcrumbs'] || $conf['youarehere']) && $ID != 'testspace-help'): ?>
+    <?php if(($conf['breadcrumbs'] || $conf['youarehere']) && $INFO['id'] != 'testspace-help'): ?>
         <div class="breadcrumbs">
             <?php if($conf['youarehere']): ?>
                 <div class="youarehere"><?php tpl_youarehere() ?></div>
