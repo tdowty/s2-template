@@ -21,9 +21,13 @@ header('X-UA-Compatible: IE=edge,come=1');
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
+
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
-<script>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39">
+  <script defer>
 // Groove widget stuff
   (function() {
       var s=document.createElement('script');
@@ -33,25 +37,21 @@ $showSidebar = $hasSidebar && ($ACT=='show');
       q.parentNode.insertBefore(s, q);
       }
   )();
-</script>
-<head>
-    <meta charset="utf-8" />
-    <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
-    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-    <?php tpl_metaheaders() ?>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
-    <?php tpl_includeFile('meta.html') ?>
+  </script>
+  <meta charset="utf-8">
 
-<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-<link href="<?php print DOKU_TPL; ?>css/ui.layout.css" rel="stylesheet">
+  <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
+  <script>
+(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
+  </script><?php tpl_metaheaders() ?>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <?php echo tpl_favicon(array('favicon', 'mobile')) ?><?php tpl_includeFile('meta.html') ?>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href="<?php print DOKU_TPL; ?>css/ui.layout.css" rel="stylesheet"><?php echo tpl_js('layout.js'); ?>
+  <script type="text/javascript">
 
-<?php echo tpl_js('layout.js'); ?>
-        
-<script type="text/javascript">
-
-jQuery(function ()
-{
+  jQuery(function ()
+  {
 
     jQuery('#container').layout({
         maskContents: true,
@@ -89,14 +89,12 @@ jQuery(function ()
 
     }
 
-    apply_space(jQuery('.codo_side_content >ul'), '&nbsp;');
+    //apply_space(jQuery('.codo_side_content >ul'), '&nbsp;');
 
-});
+  });
 
-/* Modifications to be done after page loads */
-
-    
-document.addEventListener('DOMContentLoaded',
+  /* Modifications to be done after page loads */
+  document.addEventListener('DOMContentLoaded',
     function() {
         showGrooveButton(false);
         // put "Search" in the search box
@@ -104,190 +102,144 @@ document.addEventListener('DOMContentLoaded',
         // change anchor text and href on groove popup footer
         var $f = jQuery('#gw-footer a')
         $f.text("S2 Technologies");
-        $f.attr("href", "http://www.s2technologies.com");               
-        },
+        $f.attr("href", "http://www.s2technologies.com");
+        if(JSINFO['id'] == 'testspace-help') {
+            doHomePageStuff();
+        }             
+    },
     false);
-function isElementInTarget(el, fn) {
+  function isElementInTarget(el, fn) {
     while (el) {
         if (fn(el)) return el;
         el = el.parentNode;
     }
-}
-// Hide widget button when user clicks outside of the widget
-window.addEventListener('click', function(e) {
+  }
+  // Hide widget button when user clicks outside of the widget
+  window.addEventListener('click', function(e) {
   var isTargetInWidgetContainer = isElementInTarget(e.target, function(el){ return el === GrooveWidget.container });
   if (!isTargetInWidgetContainer) showGrooveButton(false);
-});
-// Hide widget button when user presses ESC
-window.addEventListener('keydown', function(e) {
+  });
+  // Hide widget button when user presses ESC
+  window.addEventListener('keydown', function(e) {
   if (e.keyCode === 27) showGrooveButton(false);
-});
-function showGrooveButton(show) {
+  });
+  function showGrooveButton(show) {
     var $b = jQuery('#groove-button');
     var state = "none";
     if (show) {
         state = "block";
     }
     $b.css("display", state);
-}
-function showGrooveWidget() {
+  }
+  function showGrooveWidget() {
     GrooveWidget.selectPanel('#ticket');
     GrooveWidget.open();
     showGrooveButton(true);
-}
-</script>
-
-
+  }
+  function doHomePageStuff() {
+  	// fix up search box
+  	var $s = jQuery('#dw__search');
+  	$s.css('height', '60px');
+  }
+  </script>
 </head>
 
 <body>
-    
-     <div id="container">
-            <div class="ui-layout-center">
-    
-    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
-    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
-        /*echo ($showSidebar) ? 'showSidebar' : '';*/ ?> <?php /* echo ($hasSidebar) ? 'hasSidebar' : '';*/ ?>">
+  <div id="container">
+    <div class="ui-layout-center">
+      <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
 
-        <!--?php include('tpl_header.php') ?-->
+      <div id="dokuwiki__site">
+        <div id="dokuwiki__top" class=
+        "site &lt;?php echo tpl_classes(); ?&gt; &lt;?php /*echo ($showSidebar) ? 'showSidebar' : '';*/ ?&gt; &lt;?php /* echo ($hasSidebar) ? 'hasSidebar' : '';*/ ?&gt;">
+        <?php include('tpl_header.php') ?>
+        <hr class="topSep"/>
 
-        <div class="wrapper group">
-
-
-
+          <div class="wrapper group">
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content"><div class="pad group">
-                
+
+            <div id="dokuwiki__content">
+              <div class="pad group">
+              
+                  <!-- BREADCRUMBS -->
+    <?php if(($conf['breadcrumbs'] || $conf['youarehere']) && $INFO['id'] != 'testspace-help'): ?>
+        <div class="breadcrumbs">
+            <?php if($conf['youarehere']): ?>
+                <div class="youarehere"><?php tpl_youarehere() ?></div>
+            <?php endif ?>
+            <?php if($conf['breadcrumbs']): ?>
+                <div class="trace"><?php tpl_breadcrumbs() ?></div>
+            <?php endif ?>
+        </div>
+    <?php endif ?>
+
+              
+              
+              
                 <!--div class="pageId"><span><?php echo hsc($ID) ?></span></div-->
 
-              <div class="page group">
-          <?php include('tpl_header.php') ?>
-            <hr class="topSep"/> 
-                    <?php tpl_flush() ?>
-                    <?php tpl_includeFile('pageheader.html') ?>
-                    <!-- wikipage start -->
-                    <?php tpl_content() ?>
-                    <!-- wikipage stop -->
-                    <?php tpl_includeFile('pagefooter.html') ?>
+                <div class="page group">
+                  <!--?php include('tpl_header.php') ?-->
+                  <!--hr class="topSep"-->
+                  <?php tpl_flush() ?><?php tpl_includeFile('pageheader.html') ?><!-- wikipage start -->
+                  <?php tpl_content() ?><!-- wikipage stop -->
+                  <?php tpl_includeFile('pagefooter.html') ?>
                 </div>
 
-                <div class="docInfo"><?php //tpl_pageinfo() ?></div>
-
-                <?php tpl_flush() ?>
-            </div></div><!-- /content -->
-
-            <hr class="a11y" />
-
+                <div class="docInfo">
+                  <?php //tpl_pageinfo() ?>
+                </div><?php tpl_flush() ?>
+              </div>
+            </div><!-- /content -->
+            <hr class="a11y">
             <!-- PAGE ACTIONS -->
+
             <div id="dokuwiki__pagetools">
-                <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
-                <div class="tools">
-                    <ul>
-                        <?php
-                            $data = array(
-                                'view'  => 'main',
-                                'items' => array(
-                                    'edit'      => tpl_action('edit',      1, 'li', 1, '<span>', '</span>'),
-                                    'revert'    => tpl_action('revert',    1, 'li', 1, '<span>', '</span>'),
-                                    'revisions' => tpl_action('revisions', 1, 'li', 1, '<span>', '</span>'),
-                                    'backlink'  => tpl_action('backlink',  1, 'li', 1, '<span>', '</span>'),
-                                    'subscribe' => tpl_action('subscribe', 1, 'li', 1, '<span>', '</span>'),
-                                    'top'       => tpl_action('top',       1, 'li', 1, '<span>', '</span>')
-                                )
-                            );
+              <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
 
-                            // show tools only if logged in
-                            if (isset($_SERVER['REMOTE_USER'])) {
-                                // the page tools can be amended through a custom plugin hook
-                                $evt = new Doku_Event('TEMPLATE_PAGETOOLS_DISPLAY', $data);
-                                if($evt->advise_before()){
-                                    foreach($evt->data['items'] as $k => $html) echo $html;
-                                }
-                                $evt->advise_after();
-                            }
-                            unset($data);
-                            unset($evt);
-                        ?>
-                    </ul>
-                </div>
+              <div class="tools">
+                <ul>
+                  <?php
+                      $data = array(
+                                      'view'  => 'main',
+                                      'items' => array(
+                                                      'edit'      => tpl_action('edit',      1, 'li', 1, '<span>', '</span>'),
+                                                      'revert'    => tpl_action('revert',    1, 'li', 1, '<span>', '</span>'),
+                                                      'revisions' => tpl_action('revisions', 1, 'li', 1, '<span>', '</span>'),
+                                                      'backlink'  => tpl_action('backlink',  1, 'li', 1, '<span>', '</span>'),
+                                                      'subscribe' => tpl_action('subscribe', 1, 'li', 1, '<span>', '</span>'),
+                                                      'top'       => tpl_action('top',       1, 'li', 1, '<span>', '</span>')
+                                        )
+                        );
+
+                      // show tools only if logged in
+                      if (isset($_SERVER['REMOTE_USER'])) {
+                                      // the page tools can be amended through a custom plugin hook
+                                      $evt = new Doku_Event('TEMPLATE_PAGETOOLS_DISPLAY', $data);
+                                      if($evt->advise_before()){
+                                                      foreach($evt->data['items'] as $k => $html) echo $html;
+                                      }
+                                      $evt->advise_after();
+                      }
+                      unset($data);
+                      unset($evt);
+                    ?>
+                </ul>
+              </div>
             </div>
-        </div><!-- /wrapper -->
+          </div><!-- /wrapper -->
+          <?php //include('tpl_footer.php') ?>
+          <?php  include('tpl_footer.php') ?>
+        </div><!-- /site -->
 
-        <?php //include('tpl_footer.php') ?>
-    </div></div><!-- /site -->
+        <div class="no">
+          <?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?>
+        </div>
 
-    <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
-    <div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
-    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
-    
-    </div>
-
-    <!-- TXD commented out this DIV -->
-        <!--div class="ui-layout-west codowiki_west">
-            
-            
-            <div class='codowiki_west_header'>
-            <div class="headings group">
-        <ul class="a11y skip">
-            <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
-        </ul>
-
-        <h1><?php
-            // get logo either out of the template images folder or data/media folder
-            $logoSize = array();
-            $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/codo_logo_s.png'), false, $logoSize);
-
-            // display logo and wiki title in a link to the home page
-            tpl_link(
-                wl(),
-                '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
-                'accesskey="h" title="[H]"'
-            );
-        ?></h1>
-        <?php if ($conf['tagline']): ?>
-            <p class="claim"><?php echo $conf['tagline']; ?></p>
-        <?php endif ?>
-    </div-->
-            
-            
-            
-        <!--div id="dokuwiki__sitetools">
-            <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
-            <?php tpl_searchform(); ?>
-            <div class="mobileTools">
-                <?php tpl_actiondropdown($lang['tools']); ?>
-            </div>
-            <ul id="codowiki_search_ul">
-                <?php
-                    tpl_action('recent', 1, 'li');
-                    tpl_action('media', 1, 'li');
-                    tpl_action('index', 1, 'li');
-                ?>
-            </ul>
-        </div-->
-            
-            </div>
-            
-            
-            
-                <?php if($showSidebar): ?>
-                <!-- ********** ASIDE ********** -->
-                    <div class="codo_side_content">
-                        <?php tpl_flush() ?>
-                        <?php tpl_includeFile('sidebarheader.html') ?>
-                        <?php tpl_include_page($conf['sidebar'], 1, 1) ?>
-                        <?php tpl_includeFile('sidebarfooter.html') ?>
-                    </div>
-                
-            <?php endif; ?>
-            
-            <!--below div is end WEST pane-->
-            </div>
-    
-   
-    <!--below div is end content-->
-    </div>
-    
-      <?php // include('tpl_footer.php') ?>
+        <div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
+        <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+      </div>
+    </div><!--below div is end WEST pane-->
+  </div><!--below div is end content-->
 </body>
 </html>

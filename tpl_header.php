@@ -85,6 +85,7 @@ if (!defined('DOKU_INC')) die();
     </div>
 
     <!-- BREADCRUMBS -->
+<!--
     <?php if(($conf['breadcrumbs'] || $conf['youarehere']) && $INFO['id'] != 'testspace-help'): ?>
         <div class="breadcrumbs">
             <?php if($conf['youarehere']): ?>
@@ -95,7 +96,7 @@ if (!defined('DOKU_INC')) die();
             <?php endif ?>
         </div>
     <?php endif ?>
-
+-->
     <?php html_msgarea() ?>
 
     <hr class="a11y" />

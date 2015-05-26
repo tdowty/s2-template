@@ -265,20 +265,41 @@
 #dokuwiki__header h1 img {
     padding-top: 12px;
 }
+#dokuwiki__header div.headings.group {
+    margin-top: 20px;
+}
+#dokuwiki__header div.pad.group {
+    margin-bottom: -20px;
+}
+
+#dokuwiki__header span.support-link {
+    margin-top: 20px;
+}    
 #dokuwiki__header span.bchead {
     display: none;
 }
-.dokuwiki hr.topSep {
+#dokuwiki__top hr.topSep {
     color: #D9D9D9;
     height: 3;
-    margin-left: -32px;
-    margin-right: -32px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    /*
+    margin-left: -40px;
+    margin-right: -40px;
+    */
 }
 .s2_footer {
     background-color: #D9D9D9;
     height: 1em;
     padding: 1em;
-    margin: 3em -32px 0px -32px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    /*
+    margin-left: -40px;
+    margin-right: -40px;
+    */
 }
 .float_right {
     float: right;
@@ -291,13 +312,12 @@
 }
 .wrap_testspace-header-link a.wikilink1 {
     color: black !important;
-    /*font-weight: bold;*/
+    font-weight: bold;
     font-family: Lato,Helvetica,Arial,sans-serif;
     font-size: 14px;
     margin: 10px 0 15px;
     text-transform: uppercase;
     line-height: 2rem;
-    font-weight: bold;
     margin-left: -3px;
 }
 #groove-button {
@@ -308,7 +328,6 @@
 }
 #dw__search input.button {
     margin-left: -23.5em !important;
-    border: solid red;
 }
 /*____________codo wiki ______________*/
 
