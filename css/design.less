@@ -275,19 +275,13 @@
 #dokuwiki__header span.support-link {
     margin-top: 20px;
 }    
-#dokuwiki__header span.bchead {
-    display: none;
-}
+
 #dokuwiki__top hr.topSep {
     color: #D9D9D9;
     height: 3;
     position: absolute;
     left: 0;
     right: 0;
-    /*
-    margin-left: -40px;
-    margin-right: -40px;
-    */
 }
 .s2_footer {
     background-color: #D9D9D9;
@@ -310,6 +304,7 @@
     font-style: italic;
     font-size: 80%;
 }
+/* special dokuwiki class from wrap plugin */
 .wrap_testspace-header-link a.wikilink1 {
     color: black !important;
     font-weight: bold;
@@ -323,12 +318,25 @@
 #groove-button {
     display: none;
 }
-#qsearch__in {  
-        width: 24em !important;    
+#dokuwiki__sitetools form.search {
+	text-align: right;
+	margin-right: 18em;
+	}
+
+#dokuwiki__content { 
+	span.bchead {
+		display:none;
+	}
+	div.youarehere{
+		margin-top: 1em;
+	}
+	.columns-plugin {
+		border-style: none;
+	}	
 }
-#dw__search input.button {
-    margin-left: -23.5em !important;
-}
+
+
+
 /*____________codo wiki ______________*/
 
 @pad_side:4px;
@@ -344,8 +352,7 @@ background:#343131 !important;
         background:#FFF;
         color:black !important;
         font-weight:bold;
-          
-
+         
 }
 
 .codo_side_content{
