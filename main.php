@@ -53,7 +53,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   <script type="text/javascript">
 
   // hide here and show on DomContentLoaded to prevent visible glitch when changing search form/input css
-  jQuery('html').hide();
+  //jQuery('html').hide();
   
   jQuery(function ()
   {
@@ -99,8 +99,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   window.addEventListener("beforeunload", function( event ) {
     //jQuery('#dokuwiki__sitetools input.edit').hide();
     //jQuery('#dokuwiki__sitetools input.button').hide();
-
-
   });
   window.addEventListener("load", function( event ) {
     // change anchor text and href on groove popup footer
@@ -111,7 +109,8 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     // change groove button actions
     jQuery('a#gw-back-button').hide();
     jQuery('a#gw-header').attr('onclick', 'GrooveWidget.toggle();showGrooveButton(false)');
-    
+
+/*    
     GrooveIFrame.receiveMessage(function(event) {
         var eventData
     	try {
@@ -128,25 +127,34 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         }
        }
     );
+ */
   });
 
   /* Modifications to be done after page loads */
   document.addEventListener('DOMContentLoaded',
     function() {
-      	var $formSearch = jQuery('#dokuwiki__sitetools form.search');
-	
-        showGrooveButton(false);
-        // put "Search" in the search box
-        jQuery('#qsearch__in').attr("placeholder", "Search");
+    //jQuery('#dokuwiki__sitetools input.edit').hide();
+       
         if(JSINFO['id'] == 'testspace-help') {
             doHomePageStuff();
         }
+    //jQuery('#dokuwiki__sitetools input.edit').show();
+        
+      	var $formSearch = jQuery('#dokuwiki__sitetools form.search');
+	$formSearch.css('display', 'block');
+        showGrooveButton(false);
+        // put "Search" in the search box
+        jQuery('#qsearch__in').attr("placeholder", "Search");
+        
+         
         // hide on page load and show here to prevent visible glitch when changing search form/input css
-        jQuery('html').show();
+        //jQuery('html').show();
+        
         //var $f = jQuery('#gw-footer a')
         //$f.text("S2 Technologies");
         //$f.attr("href", "http://www.s2technologies.com");
-           
+        
+        //jQuery('#dokuwiki__sitetools  input#qsearch__in').css(  
     },
     false);
   function isElementInTarget(el, fn) {
@@ -178,18 +186,13 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   }
   function showGrooveWidget() {
     GrooveWidget.selectPanel('#ticket');
-    //GrooveWidget.open();
     showGrooveButton(true);
-    //var $fbForm = jQuery('#feedback_form a.cancel');
-    //$fbForm.attr('href', 'javascript:void(0)');
-    //$fbForm.attr('onclick', 'alert("iframe")');
   }
   function doHomePageStuff() {
   	// fix up search box to make big
   	var $formSearch = jQuery('#dokuwiki__sitetools form.search');
   	var $inputEdit = jQuery('#dokuwiki__sitetools input.edit');
   	var $button = jQuery('#dokuwiki__sitetools input.button');
-  	//$inputEdit.hide();
   	$formSearch.css({
   		'-webkit-font-smoothing': 'antialiased',
 		'box-sizing': 'border-box',
@@ -224,7 +227,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         	'-moz-box-sizing': 'border-box',
         	'-ms-box-sizing': 'border-box',
         	'-webkit-box-sizing': 'border-box',
-        	'-khtml-box-sizing': 'border-box'
+        	'-khtml-box-sizing': 'border-box',
+        	//'visiblity': 'visible'
+        	//'display': 'inherit'
         }); 		
  	
   	// fix up search button to make big
@@ -236,8 +241,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 		'text-indent': '-99999px',
 		'margin-left': '-47.5em'
 	});
-	//$inputEdit.show();
-	
+		
   }
   </script>
 </head>
