@@ -26,8 +26,9 @@ if (!defined('DOKU_INC')) die();
                 // display logo and wiki title in a link to the home page
                 tpl_link(
                     wl(),
-                    '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
-                    'accesskey="h" title="[H]"'
+                    '<img src="'.$logo.'" '.$logoSize[3].' alt="" />', // title is now in logo, so removing here.
+                                                                       // <span>'.$conf['title'].'</span>'
+                    'accesskey="h"'
                 );
             ?></h1>
             <?php if ($conf['tagline']): ?>
