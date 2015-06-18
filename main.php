@@ -51,9 +51,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <link href="<?php print DOKU_TPL; ?>css/ui.layout.css" rel="stylesheet"><?php echo tpl_js('layout.js'); ?>
   <script type="text/javascript">
-
-  // hide here and show on DomContentLoaded to prevent visible glitch when changing search form/input css
-  //jQuery('html').hide();
   
   jQuery(function ()
   {
@@ -91,9 +88,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         {
             apply_space(jQuery(this), times + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         });
-
     }
-
   });
 
   window.addEventListener("beforeunload", function( event ) {
@@ -109,52 +104,21 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     // change groove button actions
     jQuery('a#gw-back-button').hide();
     jQuery('a#gw-header').attr('onclick', 'GrooveWidget.toggle();showGrooveButton(false)');
-
-/*    
-    GrooveIFrame.receiveMessage(function(event) {
-        var eventData
-    	try {
-          eventData = JSON.parse(event.data);
-        } catch(e) {
-            return; // probably received a message from other iframe
-        }
-	if (eventData.name == 'set-panel' && eventData.panel == 'front-page') {
-		
-            //alert(event.origin + '\n' + event.data);
-            //GrooveIFrame.postMessage("{'name':'close'}", 's2.groovehq.com');
-            GrooveWidget.postIframeMessage('close');
-            return false;
-        }
-       }
-    );
- */
   });
 
   /* Modifications to be done after page loads */
   document.addEventListener('DOMContentLoaded',
     function() {
-    //jQuery('#dokuwiki__sitetools input.edit').hide();
        
         if(JSINFO['id'] == 'testspace-help') {
             doHomePageStuff();
         }
-    //jQuery('#dokuwiki__sitetools input.edit').show();
         
       	var $formSearch = jQuery('#dokuwiki__sitetools form.search');
 	$formSearch.css('display', 'block');
         showGrooveButton(false);
         // put "Search" in the search box
         jQuery('#qsearch__in').attr("placeholder", "Search");
-        
-         
-        // hide on page load and show here to prevent visible glitch when changing search form/input css
-        //jQuery('html').show();
-        
-        //var $f = jQuery('#gw-footer a')
-        //$f.text("S2 Technologies");
-        //$f.attr("href", "http://www.s2technologies.com");
-        
-        //jQuery('#dokuwiki__sitetools  input#qsearch__in').css(  
     },
     false);
   function isElementInTarget(el, fn) {
@@ -330,7 +294,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
               </div>
             </div>
           </div><!-- /wrapper -->
-          <?php include('tpl_footer.php') ?>
         </div><!-- /site -->
 
         <div class="no">
@@ -340,8 +303,8 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
         <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
       </div>
+      <?php  include('tpl_footer.php') ?>
     </div><!--below div is end WEST pane-->
-  <?php  //include('tpl_footer.php') ?>
   </div><!--below div is end content-->
 </body>
 </html>
