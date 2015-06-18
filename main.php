@@ -200,14 +200,14 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 		'display': 'block',
 		'font-family': 'Lato, Helvetica, Arial, sans-serif',
 		'font-size': '22px',
-		'height': '140px',
+		'height': '100px',
 		'line-height': '33px',
 		'margin-top': '0px',
-		'margin-bottom': '14px',
-		'padding-bottom': '40px',
+		'margin-bottom': '0px',
+		'padding-bottom': '30px',
 		'padding-left': '0px',
 		'padding-right': '0px',
-		'padding-top': '40px',
+		'padding-top': '20px',
 		'position': 'relative',
 		'width': '1062px',
 		'text-align': 'left',
@@ -247,7 +247,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 </head>
 
 <body>
-  <div id="container">
+  <div id="container" class="dokuwiki">
     <div class="ui-layout-center">
       <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
 
@@ -330,8 +330,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
               </div>
             </div>
           </div><!-- /wrapper -->
-          <?php //include('tpl_footer.php') ?>
-          <?php  include('tpl_footer.php') ?>
+          <?php include('tpl_footer.php') ?>
         </div><!-- /site -->
 
         <div class="no">
@@ -342,6 +341,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
       </div>
     </div><!--below div is end WEST pane-->
+  <?php  //include('tpl_footer.php') ?>
   </div><!--below div is end content-->
 </body>
 </html>

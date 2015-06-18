@@ -277,7 +277,21 @@
     span.support-link {
         margin-top: 20px;
     } 
-}   
+} 
+  
+#dokuwiki__content {
+    div.breadcrumbs {
+        border-style: none;
+    }
+
+    div.youarehere {
+        border-style: none;
+    }
+    div.page {
+        width: 96%;
+        border-style: none;
+    }
+}
 
 #dokuwiki__top hr.topSep {
     color: #D9D9D9;
@@ -285,6 +299,7 @@
     position: absolute;
     left: 0;
     right: 0;
+    z-index: 999;
 }
 #wrapper {
     padding-bottom: 1em;
@@ -293,12 +308,12 @@
     background-color: #D9D9D9;
     height: 1em;
     padding: 1em;
-    position: absolute;
     left: 0;
     right: 0;
-    /*
     bottom: 0;
-   position:fixed;
+    /*
+    position:fixed;
+    position: absolute;
    left:0px;
    bottom:0px;
    height:30px;
@@ -334,10 +349,12 @@
 	margin-right: 18em;
         display: none;
     }
-    #qsearch__in edit{
+    #qsearch__in {
+        edit {
 	/*visibility: hidden;*/
 	/*display: none;*/
 	/*margin-left: -9999px;*/
+	}
     }
 }
 #dokuwiki__content { 
