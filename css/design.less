@@ -291,6 +291,18 @@
         width: 96%;
         border-style: none;
     }
+    code::before, code::after, tt::before, tt::after {
+        content: "\00a0";
+        letter-spacing: -0.2em;
+    }
+    code, tt {
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.04);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: 0.2em 0;
+    }
 }
 
 #dokuwiki__top hr.topSep {
