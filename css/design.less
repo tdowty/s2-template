@@ -316,22 +316,25 @@
 #wrapper {
     padding-bottom: 1em;
 }
-.s2_footer {
-    background-color: #D9D9D9;
-    height: 1em;
-    padding: 1em;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-.float_right {
-    float: right;
-    font-size: 80%;
-}	
-.float_left {
-    float: left;
-    font-style: italic;
-    font-size: 80%;
+#dokuwiki__footer {
+	.s2_footer {
+	    background-color: #D9D9D9;
+	    height: 1em;
+	    padding: 1em;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	}
+	.message_right {
+	    position: absolute;
+	    right: 96px;
+	    font-size: 80%;
+	}	
+	.message_left {
+	    position: absolute;
+	    left: 72px;
+	    font-size: 80%;
+	}
 }
 /* special dokuwiki class from wrap plugin */
 .wrap_testspace-header-link a.wikilink1 {

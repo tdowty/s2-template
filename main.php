@@ -48,7 +48,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   </script><?php tpl_metaheaders() ?>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <?php echo tpl_favicon(array('favicon', 'mobile')) ?><?php tpl_includeFile('meta.html') ?>
-  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
   <link href="<?php print DOKU_TPL; ?>css/ui.layout.css" rel="stylesheet"><?php echo tpl_js('layout.js'); ?>
   <script type="text/javascript">
   

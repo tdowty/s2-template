@@ -11,8 +11,8 @@ if (!defined('DOKU_INC')) die();
 <div id="dokuwiki__footer">
   <div class="pad">
     <div class="s2_footer">
-      <span class="float_left">Testspace is a product of <a href="http://www.s2technologies.com">S2Technologies, Inc.<a></span>
-      <span class="float_right">&copy; 2000-2015</span>
+      <span class="message_left">Testspace is a product of <a href="http://www.s2technologies.com">S2Technologies, Inc.<a></span>
+      <span class="message_right">&copy; 2000-2015</span>
     </div>
   </div>
 </div>
