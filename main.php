@@ -28,17 +28,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 <head>
   <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39">
 
-  <script>
-// Groove widget stuff
-  (function() {
-      var s=document.createElement('script');
-      s.type='text/javascript';s.async=true;
-      s.src=('https:'==document.location.protocol?'https':'http') + '://s2.groovehq.com/widgets/5c0e95e7-04a7-4f9c-82a0-3b97a4b38848/ticket.js';
-      var q = document.getElementsByTagName('script')[0];
-      q.parentNode.insertBefore(s, q);
-      }
-  )();
-  </script>
 
   <meta charset="utf-8">
 
@@ -50,6 +39,19 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   <?php echo tpl_favicon(array('favicon', 'mobile')) ?><?php tpl_includeFile('meta.html') ?>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
   <link href="<?php print DOKU_TPL; ?>css/ui.layout.css" rel="stylesheet"><?php echo tpl_js('layout.js'); ?>
+  
+  <script type="text/javascript">
+// Groove widget stuff
+  (function() {
+      var s=document.createElement('script');
+      s.type='text/javascript';s.async=true;
+      s.src=('https:'==document.location.protocol?'https':'http') + '://s2.groovehq.com/widgets/5c0e95e7-04a7-4f9c-82a0-3b97a4b38848/ticket.js';
+      var q = document.getElementsByTagName('script')[0];
+      q.parentNode.insertBefore(s, q);
+      }
+  )();
+  </script>
+
   <script type="text/javascript">
   
   jQuery(function ()
@@ -227,7 +229,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
             <div id="dokuwiki__content">
               <div class="pad group">
               
-                  <!-- BREADCRUMBS -->
+           <!-- BREADCRUMBS -->
     <?php if(($conf['breadcrumbs'] || $conf['youarehere']) && $INFO['id'] != 'testspace-help'): ?>
         <div class="breadcrumbs">
             <?php if($conf['youarehere']): ?>

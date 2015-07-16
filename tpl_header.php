@@ -12,6 +12,15 @@ if (!defined('DOKU_INC')) die();
     <div class="pad group">
 
     <?php tpl_includeFile('header.html') ?>
+    
+    <!-- IN PROGRESS
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
+            <?php tpl_searchform(); ?>
+        </div>
+    -->
+    
+    
 <!-- start -->
         <div class="headings group">
             <ul class="a11y skip">
@@ -68,6 +77,7 @@ if (!defined('DOKU_INC')) die();
         <?php endif ?>
 
         <!-- SITE TOOLS -->
+
 <!--        <div id="dokuwiki__sitetools">
             <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
             <?php tpl_searchform(); ?>

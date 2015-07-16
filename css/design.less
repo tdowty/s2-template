@@ -303,6 +303,10 @@
         margin: 0;
         padding: 0.2em 0;
     }
+    /* for labels on <Code> blocks */
+    div.plugin_codeprettify {
+        margin-left: 0;
+    }
 }
 
 #dokuwiki__top hr.topSep {
@@ -317,25 +321,32 @@
     padding-bottom: 1em;
 }
 #dokuwiki__footer {
+	background-color: #D9D9D9;
+
 	.s2_footer {
-	    background-color: #D9D9D9;
 	    height: 1em;
-	    padding: 1em;
+	    padding: 1em 0;
 	    left: 0;
 	    right: 0;
 	    bottom: 0;
+	    max-width: 1200px;
+	    margin: 0 auto;
+	}
+	.label_constraint {
+	    height: 1em;
+	    padding-left: 40px;
+	    padding-right: 40px;
 	}
 	.message_right {
-	    position: absolute;
-	    right: 96px;
+	    float: right;
 	    font-size: 80%;
 	}	
 	.message_left {
-	    position: absolute;
-	    left: 72px;
+	    float: left;
 	    font-size: 80%;
 	}
 }
+
 /* special dokuwiki class from wrap plugin */
 .wrap_testspace-header-link a.wikilink1 {
     color: black !important;
