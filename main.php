@@ -93,10 +93,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     }
   });
 
-  window.addEventListener("beforeunload", function( event ) {
-    //jQuery('#dokuwiki__sitetools input.edit').hide();
-    //jQuery('#dokuwiki__sitetools input.button').hide();
-  });
   window.addEventListener("load", function( event ) {
     // change anchor text and href on groove popup footer
     var $f = jQuery('#gw-footer a')
@@ -111,13 +107,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   /* Modifications to be done after page loads */
   document.addEventListener('DOMContentLoaded',
     function() {
-       
-        if(JSINFO['id'] == 'testspace-help') {
-            doHomePageStuff();
-        }
-        
-      	var $formSearch = jQuery('#dokuwiki__sitetools form.search');
-	$formSearch.css('display', 'block');
         showGrooveButton(false);
         // put "Search" in the search box
         jQuery('#qsearch__in').attr("placeholder", "Search");
@@ -154,61 +143,6 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     GrooveWidget.selectPanel('#ticket');
     showGrooveButton(true);
   }
-  function doHomePageStuff() {
-  	// fix up search box to make big
-  	var $formSearch = jQuery('#dokuwiki__sitetools form.search');
-  	var $inputEdit = jQuery('#dokuwiki__sitetools input.edit');
-  	var $button = jQuery('#dokuwiki__sitetools input.button');
-  	$formSearch.css({
-  		'-webkit-font-smoothing': 'antialiased',
-		'box-sizing': 'border-box',
-		'color': 'rgb(41, 41, 41)',
-		'display': 'block',
-		'font-family': 'Lato, Helvetica, Arial, sans-serif',
-		'font-size': '22px',
-		'height': '100px',
-		'line-height': '33px',
-		'margin-top': '0px',
-		'margin-bottom': '0px',
-		'padding-bottom': '30px',
-		'padding-left': '0px',
-		'padding-right': '0px',
-		'padding-top': '20px',
-		'position': 'relative',
-		'width': '1062px',
-		'text-align': 'left',
-		'margin-right': '0'
-	  });
-
-  	$inputEdit.css({
-  		'-webkit-box-shadow': 'rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset',
-  		'border-radius': '32px',
-  		'height': '60px',
-  		'padding-bottom': '16px',
-  		'padding-left': '55px',
-  		'padding-right': '12px',
-  		'padding-top': '16px',
-  		'width': '100%',
-		'box-sizing': 'border-box',
-        	'-moz-box-sizing': 'border-box',
-        	'-ms-box-sizing': 'border-box',
-        	'-webkit-box-sizing': 'border-box',
-        	'-khtml-box-sizing': 'border-box',
-        	//'visiblity': 'visible'
-        	//'display': 'inherit'
-        }); 		
- 	
-  	// fix up search button to make big
-  	$button.css({
-  		'background': 'transparent url(/lib/tpl/testspace-help-template/images/search-big.png) no-repeat 0 0',
-		'border-width': '0',
-		'width': '24px',
-		'height': '24px',
-		'text-indent': '-99999px',
-		'margin-left': '-47.5em'
-	});
-		
-  }
   </script>
 </head>
 
@@ -221,6 +155,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <div id="dokuwiki__top" class=
         "site &lt;?php echo tpl_classes(); ?&gt; &lt;?php /*echo ($showSidebar) ? 'showSidebar' : '';*/ ?&gt; &lt;?php /* echo ($hasSidebar) ? 'hasSidebar' : '';*/ ?&gt;">
         <?php include('tpl_header.php') ?>
+        
         <hr class="topSep"/>
 
           <div class="wrapper group">
@@ -247,10 +182,13 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                 <!--div class="pageId"><span><?php echo hsc($ID) ?></span></div-->
 
                 <div class="page group">
-                  <!--?php include('tpl_header.php') ?-->
+                  <?php //include('tpl_header.php') ?>
                   <!--hr class="topSep"-->
-                  <?php tpl_flush() ?><?php tpl_includeFile('pageheader.html') ?><!-- wikipage start -->
-                  <?php tpl_content() ?><!-- wikipage stop -->
+                  <?php tpl_flush() ?>
+                  <?php tpl_includeFile('pageheader.html') ?>
+                  <!-- wikipage start -->
+                  <?php tpl_content() ?>
+                  <!-- wikipage stop -->
                   <?php tpl_includeFile('pagefooter.html') ?>
                 </div>
 

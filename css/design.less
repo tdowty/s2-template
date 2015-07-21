@@ -262,22 +262,68 @@
 }
 
 /*____________ testspace.help.template ______________*/
+#dokuwiki__site {
+    max-width: 1200px;
+}
 #dokuwiki__header {
     h1 img {
-        padding-top: 12px;
+        padding-top: 0;
     }
     		
-    div.headings.group {
-        margin-top: 20px;
+    div.headings {
+        margin-top: 30px;
+        width: 100%;
+        table#dokuwiki__sitetools {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+            border: 0;
+            border-style: none;
+        }
+        td {
+            border: none;
+        }
+        td#search {
+            vertical-align: middle;
+            padding-left: 20px;
+            width: 288px;
+        }
+    	td#support-link {
+            text-align: right;
+            vertical-align: middle;
+            padding: 0;
+            width: 120px;
+        } 
     }
     div.pad.group {
         margin-bottom: -20px;
     }
 
-    span.support-link {
-        margin-top: 20px;
-    } 
-} 
+ 
+    div#dokuwiki__sitetools {
+        margin-top: 60px;
+        margin-left: 50px;
+        right: 200px;
+ 
+        h1 img {
+            padding_top: 0;
+        }   
+    }
+    form#dw__search.search {
+	text-align: right;
+	margin-top: 20px;
+	/*margin-right: 50em;*/
+        display: inline;
+        width: 266px;
+    }
+    form#dw__search input.button {
+        margin-top: 0;
+    }
+    #qsearch__in {
+        margin-top: 0;
+        
+    }
+}
   
 #dokuwiki__content {
     div.breadcrumbs {
@@ -360,20 +406,6 @@
 }
 #groove-button {
     display: none;
-}
-#dokuwiki__sitetools {
-    form.search {
-	text-align: right;
-	margin-right: 18em;
-        display: none;
-    }
-    #qsearch__in {
-        edit {
-	/*visibility: hidden;*/
-	/*display: none;*/
-	/*margin-left: -9999px;*/
-	}
-    }
 }
 #dokuwiki__content { 
 	span.bchead {

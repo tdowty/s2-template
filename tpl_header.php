@@ -11,22 +11,43 @@ if (!defined('DOKU_INC')) die();
 <div id="dokuwiki__header">
     <div class="pad group">
 
-    <?php tpl_includeFile('header.html') ?>
-    
-    <!-- IN PROGRESS
-        <div id="dokuwiki__sitetools">
-            <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
-            <?php tpl_searchform(); ?>
-        </div>
-    -->
-    
-    
+    <?php tpl_includeFile('header.html') ?>   
 <!-- start -->
         <div class="headings group">
             <ul class="a11y skip">
                 <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
             </ul>
 
+<table id="dokuwiki__sitetools">
+    <tbody>
+        <tr>
+	    <td id="logo">
+            <h1><?php
+                // get logo either out of the template images folder or data/media folder
+                $logoSize = array();
+                $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
+
+                // display logo and wiki title in a link to the home page
+                tpl_link(
+                    wl(),
+                    '<img src="'.$logo.'" '.$logoSize[3].' alt="" />', // title is now in logo, so removing here.
+                                                                       // <span>'.$conf['title'].'</span>'
+                    'accesskey="h"'
+                );
+            ?></h1>
+            </td>
+            <td id="search">
+                <?php tpl_searchform(); ?>
+            </td>
+            <td id='support-link'>
+                <a href='#ticket' 
+                   onclick="var e=arguments[0]||window.event;e.stopPropagation();showGrooveWidget()">Contact Support</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--
             <h1><?php
                 // get logo either out of the template images folder or data/media folder
                 $logoSize = array();
@@ -43,11 +64,17 @@ if (!defined('DOKU_INC')) die();
             <?php if ($conf['tagline']): ?>
                 <p class="claim"><?php echo $conf['tagline']; ?></p>
             <?php endif ?>
+            <div id="dokuwiki__sitetools">
+                <?php tpl_searchform(); ?>
+            </div>
+            <div class='support-link'>
+                <a href='#ticket' 
+                   onclick="var e=arguments[0]||window.event;e.stopPropagation();showGrooveWidget()">Contact Support</a>
+            </div>
+-->
         </div>
-        <span class='support-link'>
-            <a href='#ticket' 
-               onclick="var e=arguments[0]||window.event;e.stopPropagation();showGrooveWidget()">Contact Support</a>
-        </span>
+    </div>
+
 <!--end -->
 
     <div class="tools group">
@@ -111,4 +138,4 @@ if (!defined('DOKU_INC')) die();
     <?php html_msgarea() ?>
 
     <hr class="a11y" />
-</div></div><!-- /header -->
+</div><!--/div--><!-- /header -->
