@@ -14,9 +14,9 @@ if (!defined('DOKU_INC')) die();
     <?php tpl_includeFile('header.html') ?>   
 <!-- start -->
         <div class="headings group">
-            <ul class="a11y skip">
+            <!--ul class="a11y skip">
                 <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
-            </ul>
+            </ul-->
 
 <table id="dokuwiki__sitetools">
     <tbody>
