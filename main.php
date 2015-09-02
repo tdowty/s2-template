@@ -33,13 +33,23 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
   <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
   <script>
-(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
-  </script><?php tpl_metaheaders() ?>
+    (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
+  </script>
+  <?php tpl_metaheaders() ?>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <?php echo tpl_favicon(array('favicon', 'mobile')) ?><?php tpl_includeFile('meta.html') ?>
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-  <link href="<?php print DOKU_TPL; ?>css/ui.layout.css" rel="stylesheet"><?php echo tpl_js('layout.js'); ?>
   
+  <meta name="msapplication-TileImage" content="<?php print DOKU_TPL; ?>images/msapplication-TileImage-144x144.png" />
+  <meta name="msapplication-TileColor" content="#ebeced" />
+  <link rel="apple-touch-icon" type="image/png" href="<?php print DOKU_TPL; ?>images/apple-touch-icon-76x76.png" sizes="76x76" />
+  <link rel="apple-touch-icon" type="image/png" href="<?php print DOKU_TPL; ?>images/apple-touch-icon-152x152.png" sizes="152x152" />
+  
+  <?php echo tpl_favicon(array('favicon')) ?>
+  <?php tpl_includeFile('meta.html') ?>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+  <link href="<?php print DOKU_TPL; ?>css/ui.layout.css" rel="stylesheet">
+  <?php echo tpl_js('layout.js'); ?>
+  
+   
   <script type="text/javascript">
 // Groove widget stuff
   (function() {
