@@ -38,10 +38,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   <?php tpl_metaheaders() ?>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   
-  <meta name="msapplication-TileImage" content="<?php print DOKU_TPL; ?>images/msapplication-TileImage-144x144.png" />
-  <meta name="msapplication-TileColor" content="#ebeced" />
-  <link rel="apple-touch-icon" type="image/png" href="<?php print DOKU_TPL; ?>images/apple-touch-icon-76x76.png" sizes="76x76" />
-  <link rel="apple-touch-icon" type="image/png" href="<?php print DOKU_TPL; ?>images/apple-touch-icon-152x152.png" sizes="152x152" />
+  <!--meta name="application-name" content="Testspace Help"-->
+  <meta name="msapplication-TileImage" content="<?php print DOKU_TPL; ?>images/msapplication-TileImage-144x144.png">
+  <meta name="msapplication-TileColor" content="#ebeced">
+  <link rel="apple-touch-icon" type="image/png" href="<?php print DOKU_TPL; ?>images/apple-touch-icon-76x76.png" sizes="76x76">
+  <link rel="apple-touch-icon" type="image/png" href="<?php print DOKU_TPL; ?>images/apple-touch-icon-152x152.png" sizes="152x152">
   
   <?php echo tpl_favicon(array('favicon')) ?>
   <?php tpl_includeFile('meta.html') ?>
