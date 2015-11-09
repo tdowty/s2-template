@@ -136,6 +136,6 @@ if (!defined('DOKU_INC')) die();
     <?php endif ?>
 -->
     <?php html_msgarea() ?>
-
+    <hr class="topSep"/>
     <hr class="a11y" />
 </div><!--/div--><!-- /header -->

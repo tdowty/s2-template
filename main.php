@@ -32,6 +32,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   <meta charset="utf-8">
 
   <title><?php tpl_pagetitle() ?> [<?php echo strip_tags($conf['title']) ?>]</title>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+  
   <script>
     (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
   </script>
@@ -107,8 +110,8 @@ $showSidebar = $hasSidebar && ($ACT=='show');
   window.addEventListener("load", function( event ) {
     // change anchor text and href on groove popup footer
     var $f = jQuery('#gw-footer a')
-    $f.text("S2 Technologies");
-    $f.attr("href", "http://www.s2technologies.com");
+    $f.text("Testspace.com");
+    $f.attr("href", "http://www.testspace.com");
     
     // change groove button actions
     jQuery('a#gw-back-button').hide();
@@ -167,7 +170,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         "site &lt;?php echo tpl_classes(); ?&gt; &lt;?php /*echo ($showSidebar) ? 'showSidebar' : '';*/ ?&gt; &lt;?php /* echo ($hasSidebar) ? 'hasSidebar' : '';*/ ?&gt;">
         <?php include('tpl_header.php') ?>
         
-        <hr class="topSep"/>
+        <!--hr class="topSep"/-->
 
           <div class="wrapper group">
             <!-- ********** CONTENT ********** -->
