@@ -60,7 +60,8 @@ function tpl_dokuwiki_mobile(){
 
 jQuery(function(){
     var resizeTimer;
-    dw_page.makeToggle('#dokuwiki__aside h3.toggle','#dokuwiki__aside div.content');
+    // txd - dw_page is not defined
+    //dw_page.makeToggle('#dokuwiki__aside h3.toggle','#dokuwiki__aside div.content');
 
     tpl_dokuwiki_mobile();
     jQuery(window).bind('resize',

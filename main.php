@@ -107,7 +107,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     }
   });
 
-  window.addEventListener("load", function( event ) {
+   window.addEventListener("load", function( event ) {
     // change anchor text and href on groove popup footer
     var $f = jQuery('#gw-footer a')
     $f.text("Testspace.com");
